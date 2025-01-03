@@ -45,3 +45,50 @@ DESCRIBE mi_tabla;
 ```
 
 ![Texto alternativo](table.png)
+
+<h2>creacion del archivo PHP</h2>
+
+vamos a crear un archivo php que se va a encaragar de ser el intermediario entre la base de datos 
+y nuestra aplicacion, pagina web etc
+
+<h3>descarga php en tu vps</h3>
+
+actualiza los paquetes del sistema
+```
+sudo apt update
+sudo apt upgrade -y
+```
+instala php y el modulo apache para el sistema
+```
+sudo apt install php libapache2-mod-php -y
+```
+reinicia apache para guardar los cambios
+```
+sudo systemctl restart apache2
+```
+con este comando puedes ver la version php que tienes en el sistema 
+
+```
+php -v
+```
+
+vamos a crear un archivo de prueba 
+```
+sudo nano /var/www/html/info.php
+```
+
+```php
+<?php
+phpinfo();
+?>
+```
+recuerda siempre reiniciar apache para guardar los cambios 
+
+ahora ve a navegador escribe el nombre de tu ip o dominio seguido del nombre del archivo php
+ejemplo "76.209.45.47/info.php"
+debera arrojar algo asi 
+
+![Texto alternativo](pantallazo_php.png)
+
+
+
