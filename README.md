@@ -90,5 +90,33 @@ debera arrojar algo asi
 
 ![Texto alternativo](pantallazo_php.png)
 
+una vez ya hallamos confirmado que esta bien instalado php vamos a proceder a crear el archivo que se conectara a la base de datos 
+
+```
+sudo nano /var/www/html/conexion.php
+```
+
+```
+
+<?php
+
+$host = "localhost";
+$usuario = "nombre_de_usuario";
+$password =  "contraseña";
+$bd = "nombre_de_la_base_de_datos";
+
+
+try {
+    $conexion = new PDO("mysql:host=$host;dbname=$bd;charset=utf8", $usuario, $password);
+    // Configurar PDO para que lance excepciones en caso de error
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "¡Conexión exitosa a la base de datos!";
+} catch (PDOException $e) {
+    // Mostrar mensaje de error si la conexión falla
+    echo "Error al conectar a la base de datos: " . $e->getMessage();
+}
+?>
+```
+
 
 
